@@ -72,6 +72,9 @@ public class CountryPicker extends DialogFragment implements Comparator<Country>
     if (allCountriesList == null) {
       try {
         allCountriesList = new ArrayList<>();
+        if (topCountries != null && topCountries.size() > 0) {
+        	allCountriesList.addAll(topCountries);
+        }
         String allCountriesCode = readEncodedJsonString();
         JSONArray countryArray = new JSONArray(allCountriesCode);
         for (int i = 0; i < countryArray.length(); i++) {
@@ -84,9 +87,6 @@ public class CountryPicker extends DialogFragment implements Comparator<Country>
           allCountriesList.add(country);
         }
         Collections.sort(allCountriesList, this);
-        if (topCountries != null && topCountries.size() > 0) {
-          allCountriesList = topCountries.addAll(allCountriesList);
-        }
         selectedCountriesList = new ArrayList<>();
         selectedCountriesList.addAll(allCountriesList);
         return allCountriesList;
