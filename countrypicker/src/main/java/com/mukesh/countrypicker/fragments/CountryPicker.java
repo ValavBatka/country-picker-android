@@ -85,6 +85,8 @@ public class CountryPicker extends DialogFragment implements Comparator<Country>
         }
         Collections.sort(allCountriesList, this);
         if (topCountries != null && topCountries.size() > 0) {
+          List<Country> all = allCountriesList;
+          allCountriesList = topCountries.addAll(all);
           //allCountriesList = topCountries.addAll(allCountriesList);
         }
         selectedCountriesList = new ArrayList<>();
