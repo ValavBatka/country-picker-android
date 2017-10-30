@@ -32,6 +32,9 @@ public class Country {
       name = new Locale("", code).getDisplayName();
     }
   }
+  public void setName(String name) {
+    this.name = name;
+  }
 
   public String getName() {
     return name;
