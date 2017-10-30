@@ -77,6 +77,8 @@ public class CountryListAdapter extends BaseAdapter {
     country.setFlag(drawableId);
     if (drawableId > 0) {
       cell.imageView.setImageResource(drawableId);
+    } else {
+      cell.imageView.setImageResource(android.R.color.transparent);
     }
     return cellView;
   }
